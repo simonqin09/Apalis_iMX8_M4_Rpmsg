@@ -1,0 +1,41 @@
+diff --git a/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-eval.dtsi b/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-eval.dtsi
+index 6153e6ad1b46..511905f276f6 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-eval.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-eval.dtsi
+@@ -260,7 +260,7 @@
+ 
+ /* Apalis UART4 */
+ &lpuart2 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis UART2 */
+@@ -364,12 +364,12 @@
+ 
+ /* Apalis PWM3, MXM3 pin 6 */
+ &pwm0 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis PWM4, MXM3 pin 8 */
+ &pwm1 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis PWM1, MXM3 pin 2 */
+diff --git a/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-v1.1.dtsi
+index 6f5e5d9b62c2..3ad8a3345a68 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-imx8qm-apalis-v1.1.dtsi
+@@ -412,7 +412,7 @@
+ 	pinctrl-0 = <&pinctrl_cam1_gpios>, <&pinctrl_dap1_gpios>,
+ 		    <&pinctrl_esai0_gpios>, <&pinctrl_fec2_gpios>,
+ 		    <&pinctrl_gpio34>, <&pinctrl_gpio_usbh_oc_n>,
+-		    <&pinctrl_lpuart1ctrl>, <&pinctrl_lvds0_i2c0_gpio>,
++		    <&pinctrl_lvds0_i2c0_gpio>,
+ 		    <&pinctrl_lvds1_i2c0_gpios>, <&pinctrl_mipi_dsi_0_1_en>,
+ 		    <&pinctrl_mipi_dsi1_gpios>, <&pinctrl_mlb_gpios>,
+ 		    <&pinctrl_qspi1a_gpios>, <&pinctrl_sata1_act>,
