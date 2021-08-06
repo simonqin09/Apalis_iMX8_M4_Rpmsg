@@ -1,0 +1,123 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+index 4b6d0e846b32..3b4c377a5c2d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+@@ -256,7 +256,7 @@
+ 
+ /* Apalis UART4 */
+ &lpuart2 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis UART2 */
+@@ -271,12 +271,12 @@
+ 
+ /* Apalis PWM3, MXM3 pin 6 */
+ &pwm0 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis PWM4, MXM3 pin 8 */
+ &pwm1 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* Apalis PWM1, MXM3 pin 2 */
+@@ -365,3 +365,10 @@
+ 	status = "okay";
+ };
+ 
++&rpmsg0{
++       status = "okay";
++};
++
++&rpmsg1{
++        status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+index bc35996ff744..80c4cfb656c1 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+@@ -272,6 +272,70 @@
+ 		status = "disabled";
+ 	};
+ 
++        reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		vdev0vring0: vdev0vring0@90000000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90000000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0vring1: vdev0vring1@90008000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90008000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring0: vdev1vring0@90010000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90010000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring1: vdev1vring1@90018000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90018000 0 0x8000>;
++			no-map;
++		};
++
++		rsc-table@0 {
++			reg = <0 0x900ff000 0 0x1000>;
++			no-map;
++		};
++
++		vdev2vring0: vdev0vring0@90100000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90100000 0 0x8000>;
++			no-map;
++		};
++
++		vdev2vring1: vdev0vring1@90108000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90108000 0 0x8000>;
++			no-map;
++		};
++
++		vdev3vring0: vdev1vring0@90110000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90110000 0 0x8000>;
++			no-map;
++		};
++
++		vdev3vring1: vdev1vring1@90118000 {
++                        compatible = "shared-dma-pool";
++			reg = <0 0x90118000 0 0x8000>;
++			no-map;
++		};
++
++		rsc-table@1 {
++			reg = <0 0x901ff000 0 0x1000>;
++			no-map;
++		};
++	};
++
+ };
+ 
+ &adc0 {
+@@ -417,7 +481,7 @@
+ 	pinctrl-0 = <&pinctrl_cam1_gpios>, <&pinctrl_dap1_gpios>,
+ 		    <&pinctrl_esai0_gpios>, <&pinctrl_fec2_gpios>,
+ 		    <&pinctrl_gpio3>, <&pinctrl_gpio4>,
+-		    <&pinctrl_gpio_usbh_oc_n>, <&pinctrl_lpuart1ctrl>,
++		    <&pinctrl_gpio_usbh_oc_n>,
+ 		    <&pinctrl_lvds0_i2c0_gpio>, <&pinctrl_lvds1_i2c0_gpios>,
+ 		    <&pinctrl_mipi_dsi_0_1_en>, <&pinctrl_mipi_dsi1_gpios>,
+ 		    <&pinctrl_mlb_gpios>, <&pinctrl_qspi1a_gpios>,
